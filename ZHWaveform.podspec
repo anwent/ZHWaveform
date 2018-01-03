@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/anwent/ZHWaveform.git", :tag => "1.0.0" }
 
-  s.source_files  = "ZHWaveform_Example", "ZHWaveform/.{swift}" 
+  s.source_files  = "ZHWaveform/.{swift}" 
   s.requires_arc  = true
   s.platform      = :ios, '8.0'
   s.framework     = 'Foundation', 'AVFoundation', 'UIKit' 
