@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol ZHCroppedDelegate {
+@objc public protocol ZHCroppedDelegate {
     
     /**
      value view's maxX

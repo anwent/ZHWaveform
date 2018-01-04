@@ -45,11 +45,11 @@ public class ZHWaveformView: UIView {
         }
     }
     
-     weak var croppedDelegate: ZHCroppedDelegate? {
+    weak var croppedDelegate: ZHCroppedDelegate? {
         didSet { layoutIfNeeded() }
     }
     
-     weak var waveformDelegate: ZHWaveformViewDelegate?
+    weak var waveformDelegate: ZHWaveformViewDelegate?
     
     private var fileURL: URL
     
@@ -109,7 +109,7 @@ public class ZHWaveformView: UIView {
         }
     }
     
-    func drawTrack(with rect: CGRect, filerSamples: [CGFloat]) {
+    private func drawTrack(with rect: CGRect, filerSamples: [CGFloat]) {
         _ = trackLayer.map{ $0.removeFromSuperlayer() }
         trackLayer.removeAll()
         startCroppedView?.removeFromSuperview()
@@ -261,6 +261,7 @@ extension ZHWaveformView {
     }
     
     typealias TrackIndex = Int
+    
     func croppedWaveform(
         start: TrackIndex,
         end: TrackIndex

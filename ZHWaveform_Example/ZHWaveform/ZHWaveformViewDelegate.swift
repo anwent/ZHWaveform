@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol ZHWaveformViewDelegate {
+@objc public protocol ZHWaveformViewDelegate {
     
     // start
     @objc optional func waveformViewStartDrawing(waveformView: ZHWaveformView)

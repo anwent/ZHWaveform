@@ -144,9 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				D96F96451FFB6D160075F3DB /* ZHAudioProcessing.swift */,
-				D96F96461FFB6D160075F3DB /* ZHWaveformViewDelegate.swift */,
 				D96F96471FFB6D160075F3DB /* ZHTrackProcessing.swift */,
 				D96F96481FFB6D160075F3DB /* ZHWaveformView.swift */,
+				D96F96461FFB6D160075F3DB /* ZHWaveformViewDelegate.swift */,
 				D96F96491FFB6D160075F3DB /* ZHCroppedDelegate.swift */,
 			);
 			path = ZHWaveform;
