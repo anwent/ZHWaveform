@@ -1,4 +1,4 @@
-#ZHWaveform
+ZHWaveform
 ----
 ZHWaveform是一个用Swift编写的库，可以轻松的在iOS 上绘制出音频音轨，可自定义两侧滑块，调整绘制比例，使用方便。
 
@@ -12,14 +12,14 @@ ZHWaveform是一个用Swift编写的库，可以轻松的在iOS 上绘制出音�
 ![07_center_ex](https://image.ibb.co/dN3A2G/07_center_ex.png)
 
 
-###要求
+要求
 - - -
  - iOS 8.0+
 
  - Swift 4.0
 
 - - -
-###Cocoapods
+Cocoapods
     
 `pod 'ZHWaveform', '~> 1.0.1'`
    
@@ -27,12 +27,13 @@ ZHWaveform是一个用Swift编写的库，可以轻松的在iOS 上绘制出音�
  
 `$ pod install`
 
-###示例代码
+示例代码
  - - -
  
-####导入
+导入
 `import ZHWaveform`
-####创建
+
+创建
  
      lazy var waveform: ZHWaveformView = {
         let bundle = Bundle(for: type(of: self)) // music
@@ -46,27 +47,38 @@ ZHWaveform是一个用Swift编写的库，可以轻松的在iOS 上绘制出音�
     
     
     
-####设定
+设定
 
   音轨颜色：`wavesColor: UIColor`
+  
 
   拖动后左侧颜色：`beginningPartColor: UIColor`
+  
 
   拖动后右侧颜色：`endPartColor: UIColor`
+  
     
  缩放比例：`trackScale: CGFloat` (0~1)
  
  
-####Delegate
+ 
+Delegate
  
  创建左侧滑块，有效值view的maxX：
+ 
  `func waveformView(startCropped waveformView: ZHWaveformView) -> UIView?`
  
- 创建右侧滑块，有效值view的minX
+ 
+ 创建右侧滑块，有效值view的minX:
+ 
  `func waveformView(endCropped waveformView: ZHWaveformView) -> UIView?`
  
+ 
  左滑块当前值:
+ 
  `func waveformView(startCropped: UIView, progress rate: CGFloat)`
  
+ 
  右滑块当前值:
+ 
  `func waveformView(endCropped: UIView, progress rate: CGFloat)`
