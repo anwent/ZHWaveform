@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZHWaveform"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Quickly draw audio volume tracks on iOS, which implement by Swift"
 
   s.description  = <<-DESC
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "zzh" => "wow250250@163.com" }
 
-  s.source       = { :git => "https://github.com/anwent/ZHWaveform.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/anwent/ZHWaveform.git", :tag => "1.0.1" }
 
   s.source_files  = "ZHWaveform_Example/ZHWaveform/*.{swift}" 
   s.requires_arc  = true
