@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ZHWaveformView: UIView {
+public class ZHWaveformView: UIView {
     
     /** waves color */
     open var wavesColor: UIColor = .red {
@@ -45,11 +45,11 @@ class ZHWaveformView: UIView {
         }
     }
     
-    open weak var croppedDelegate: ZHCroppedDelegate? {
+     weak var croppedDelegate: ZHCroppedDelegate? {
         didSet { layoutIfNeeded() }
     }
     
-    open weak var waveformDelegate: ZHWaveformViewDelegate?
+     weak var waveformDelegate: ZHWaveformViewDelegate?
     
     private var fileURL: URL
     
@@ -95,7 +95,7 @@ class ZHWaveformView: UIView {
         }
     }
     
-    override func layoutIfNeeded() {
+    override public func layoutIfNeeded() {
         super.layoutIfNeeded()
         if let samples = trackProcessingCut {
             creatCroppedView()
@@ -153,7 +153,7 @@ class ZHWaveformView: UIView {
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -261,7 +261,7 @@ extension ZHWaveformView {
     }
     
     typealias TrackIndex = Int
-    public func croppedWaveform(
+    func croppedWaveform(
         start: TrackIndex,
         end: TrackIndex
         ) {

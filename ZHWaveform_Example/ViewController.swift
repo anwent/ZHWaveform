@@ -23,7 +23,7 @@ class ViewController: UIViewController, ZHCroppedDelegate, ZHWaveformViewDelegat
         waveform.wavesColor = .orange
         
         // 0 ~ 1
-        waveform.trackScale = 0.3
+        waveform.trackScale = 0.2
         
         waveform.waveformDelegate = self
         waveform.croppedDelegate = self
@@ -39,13 +39,17 @@ class ViewController: UIViewController, ZHCroppedDelegate, ZHWaveformViewDelegat
     
     func waveformView(startCropped waveformView: ZHWaveformView) -> UIView? {
         let start = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 44))
-        start.backgroundColor = .red
+        start.backgroundColor = .white
+        start.layer.borderWidth = 1
+        start.layer.borderColor = UIColor.black.cgColor
         return start
     }
 
     func waveformView(endCropped waveformView: ZHWaveformView) -> UIView? {
         let end = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 44))
-        end.backgroundColor = .blue
+        end.backgroundColor = .white
+        end.layer.borderWidth = 1
+        end.layer.borderColor = UIColor.black.cgColor
         return end
     }
 
