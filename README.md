@@ -1,6 +1,6 @@
 ZHWaveform
 ----
-ZHWaveform是一个用Swift编写的库，可以轻松的在iOS 上绘制出音频音轨，可自定义两侧滑块，调整绘制比例，使用方便。
+ZHWaveform is a library written in Swift, you can easily draw an audio track on iOS, you can customize the slider on both sides, adjust the draw ratio, easy to use.
 
 
 ![005_none_ex](https://image.ibb.co/iY6f2G/005_none_ex.png)
@@ -11,29 +11,31 @@ ZHWaveform是一个用Swift编写的库，可以轻松的在iOS 上绘制出音�
 
 ![07_center_ex](https://image.ibb.co/dN3A2G/07_center_ex.png)
 
+[This link](https://github.com/anwent/ZHWaveform/blob/master/README_CN.md) 中文文档
 
-要求
+Requirements
 - - -
  - iOS 8.0+
 
  - Swift 4.0
 
-- - -
 Cocoapods
-    
+- - -
+Add the following line to your `Podfile`:
+
 `pod 'ZHWaveform', '~> 1.0.1'`
    
-然后运行以下命令
+Then, run the following command:
  
 `$ pod install`
 
-示例代码
+Deserialization
  - - -
  
-导入
+Import
 `import ZHWaveform`
 
-创建
+Create
  
      lazy var waveform: ZHWaveformView = {
         let bundle = Bundle(for: type(of: self)) // music
@@ -47,38 +49,38 @@ Cocoapods
     
     
     
-设定
+Setting
 
-  音轨颜色：`wavesColor: UIColor`
+  wavesColor：`wavesColor: UIColor`
   
 
-  拖动后左侧颜色：`beginningPartColor: UIColor`
+  Cut off the beginning part color：`beginningPartColor: UIColor`
   
 
-  拖动后右侧颜色：`endPartColor: UIColor`
+  Cut out the end part color：`endPartColor: UIColor`
   
     
- 缩放比例：`trackScale: CGFloat` (0~1)
+ Track Scale：`trackScale: CGFloat` (0 ~ 1)
  
  
  
 Delegate
  
- 创建左侧滑块，有效值view的maxX：
+ Create start crop，Valid value is the `maxX` value of the view：
  
  `func waveformView(startCropped waveformView: ZHWaveformView) -> UIView?`
  
  
- 创建右侧滑块，有效值view的minX:
+ Create end crop, Valid value is the `minX` value of the view:
  
  `func waveformView(endCropped waveformView: ZHWaveformView) -> UIView?`
  
  
- 左滑块当前值:
+ Start part of the crop current value:
  
  `func waveformView(startCropped: UIView, progress rate: CGFloat)`
  
  
- 右滑块当前值:
+ End part of the crop current value:
  
  `func waveformView(endCropped: UIView, progress rate: CGFloat)`
