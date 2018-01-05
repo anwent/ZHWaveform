@@ -11,7 +11,7 @@ ZHWaveform is a library written in Swift, you can easily draw an audio track on 
 
 ![07_center_ex](https://image.ibb.co/dN3A2G/07_center_ex.png)
 
-[This link](https://github.com/anwent/ZHWaveform/blob/master/README_CN.md) 中文文档
+[中文文档](https://github.com/anwent/ZHWaveform/blob/master/README_CN.md)
 
 Requirements
 - - -
