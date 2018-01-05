@@ -12,17 +12,19 @@ ZHWaveform是一个用Swift编写的库，可以轻松的在iOS 上绘制出音�
 ![07_center_ex](https://image.ibb.co/dN3A2G/07_center_ex.png)
 
 
-
-
 要求
-- - -
+---
+
  - iOS 8.0+
 
  - Swift 4.0
+ 
 
-- - -
 Cocoapods
-    
+---
+
+`Podfile` 文件中添加：
+
 `pod 'ZHWaveform', '~> 1.0.1'`
    
 然后运行以下命令
