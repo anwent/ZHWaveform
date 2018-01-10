@@ -25,7 +25,7 @@ Cocoapods
 
 `Podfile` 文件中添加：
 
-`pod 'ZHWaveform', '~> 1.0.1'`
+`pod 'ZHWaveform', '~> 1.0.2'`
    
 然后运行以下命令
  
