@@ -12,7 +12,7 @@ import AVFoundation
 public class ZHWaveformView: UIView {
     
     /** waves color */
-    open var wavesColor: UIColor = .red {
+    public var wavesColor: UIColor = .red {
         didSet {
             DispatchQueue.main.async {
                 _ = self.trackLayer.map({ [unowned self] in
@@ -23,13 +23,13 @@ public class ZHWaveformView: UIView {
     }
     
     /** Cut off the beginning part color */
-    open var beginningPartColor: UIColor = .gray
+    public var beginningPartColor: UIColor = .gray
     
     /** Cut out the end part color */
-    open var endPartColor: UIColor = .gray
+    public var endPartColor: UIColor = .gray
     
     /** Track Scale normal 0.5, max 1*/
-    open var trackScale: CGFloat = 0.5 {
+    public var trackScale: CGFloat = 0.5 {
         didSet {
             if let `assetMutableData` = assetMutableData {
                 croppedViewZero()
@@ -45,11 +45,11 @@ public class ZHWaveformView: UIView {
         }
     }
     
-    weak var croppedDelegate: ZHCroppedDelegate? {
+    public weak var croppedDelegate: ZHCroppedDelegate? {
         didSet { layoutIfNeeded() }
     }
     
-    weak var waveformDelegate: ZHWaveformViewDelegate?
+    public weak var waveformDelegate: ZHWaveformViewDelegate?
     
     private var fileURL: URL
     
@@ -77,7 +77,7 @@ public class ZHWaveformView: UIView {
     
     private var assetMutableData: NSMutableData?
     
-    init(frame: CGRect, fileURL: URL) {
+    public init(frame: CGRect, fileURL: URL) {
         self.fileURL = fileURL
         super.init(frame: frame)
         waveformDelegate?.waveformViewStartDrawing?(waveformView: self)
