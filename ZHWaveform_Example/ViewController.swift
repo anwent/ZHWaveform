@@ -23,7 +23,7 @@ class ViewController: UIViewController, ZHCroppedDelegate, ZHWaveformViewDelegat
         waveform.wavesColor = .orange
         
         // 0 ~ 1
-        waveform.trackScale = 0.2
+        waveform.trackScale = 0.4
         
         waveform.waveformDelegate = self
         waveform.croppedDelegate = self

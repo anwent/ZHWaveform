@@ -24,7 +24,7 @@ Cocoapods
 - - -
 Add the following line to your `Podfile`:
 
-`pod 'ZHWaveform', '~> 1.0.1'`
+`pod 'ZHWaveform', '~> 1.0.2'`
    
 Then, run the following command:
  
