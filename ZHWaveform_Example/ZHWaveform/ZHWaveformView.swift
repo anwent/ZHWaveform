@@ -46,7 +46,7 @@ public class ZHWaveformView: UIView {
     }
     
     public weak var croppedDelegate: ZHCroppedDelegate? {
-        didSet { layoutIfNeeded() }
+        didSet { setNeedsLayout() }
     }
     
     public weak var waveformDelegate: ZHWaveformViewDelegate?
@@ -85,18 +85,24 @@ public class ZHWaveformView: UIView {
         asset = AVAsset(url: fileURL)
         track = asset?.tracks(withMediaType: .audio).first
         
-        ZHAudioProcessing.bufferRef(asset: asset!, track: track!, success: { [unowned self] (data) in
-            self.assetMutableData = data
-            self.trackProcessingCut = ZHTrackProcessing.cutAudioData(size: frame.size, recorder: data, scale: self.trackScale)
-            self.drawTrack(with: CGRect(origin: .zero, size: frame.size), filerSamples: self.trackProcessingCut ?? [])
-            self.waveformDelegate?.waveformViewDrawComplete?(waveformView: self)
-        }) { (error) in
-            assert(true, error?.localizedDescription ?? "Error, AudioProcessing.bufferRef")
+        if let asset = asset, let track = track {
+            DispatchQueue.global().async {
+                ZHAudioProcessing.bufferRef(asset: asset, track: track, success: { [unowned self] (data) in
+                    self.assetMutableData = data
+                    self.trackProcessingCut = ZHTrackProcessing.cutAudioData(size: frame.size, recorder: data, scale: self.trackScale)
+                    DispatchQueue.main.async {
+                        self.drawTrack(with: CGRect(origin: .zero, size: frame.size), filerSamples: self.trackProcessingCut ?? [])
+                        self.waveformDelegate?.waveformViewDrawComplete?(waveformView: self)
+                    }
+                }) { (error) in
+                    assert(true, error?.localizedDescription ?? "Error, AudioProcessing.bufferRef")
+                }
+            }
         }
     }
     
-    override public func layoutIfNeeded() {
-        super.layoutIfNeeded()
+    override public func layoutSubviews() {
+        super.layoutSubviews()
         if let samples = trackProcessingCut {
             creatCroppedView()
             drawTrack(
@@ -125,8 +131,8 @@ public class ZHWaveformView: UIView {
                 width: trackWidth,
                 height: rect.height
             )
-            layer.lineCap = kCALineCapButt
-            layer.lineJoin = kCALineJoinRound
+            layer.lineCap = CAShapeLayerLineCap.butt
+            layer.lineJoin = CAShapeLayerLineJoin.round
             layer.lineWidth = trackWidth
             layer.strokeColor = wavesColor.cgColor
             self.layer.addSublayer(layer)

@@ -35,7 +35,7 @@ struct ZHAudioProcessing {
                     if let blockBuffer: CMBlockBuffer = CMSampleBufferGetDataBuffer(sampleBuffer) {
                         let length: Int = CMBlockBufferGetDataLength(blockBuffer)
                         var sampleBytes = [Int16](repeating: Int16(), count: length)
-                        CMBlockBufferCopyDataBytes(blockBuffer, 0, length, &sampleBytes)
+                        CMBlockBufferCopyDataBytes(blockBuffer, atOffset: 0, dataLength: length, destination: &sampleBytes)
                         data.append(&sampleBytes, length: length)
                         CMSampleBufferInvalidate(sampleBuffer)
                     }
